@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation - CodeIdea Internship Programs | Summer 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4285F4; /* Google blue */
+            --text-dark: #202124;
+            --text-light: #5f6368;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --success-color: #34a853;
+            --accent-color: #ff6b35;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+        
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 16px 0;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-button:hover {
+            text-decoration: underline;
+        }
+        
+        .back-icon {
+            margin-right: 6px;
+        }
+        
+        .form-container {
+            background-color: var(--bg-white);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            margin: 40px auto;
+            padding: 30px;
+            max-width: 800px;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-header h1 {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        
+        .form-header p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .payment-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f0f7ff 100%);
+            border: 1px solid #bbdefb;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .payment-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .payment-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .payment-detail {
+            background-color: var(--bg-white);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #e1f5fe;
+        }
+        
+        .payment-detail strong {
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .payment-detail span {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        .important-note {
+            background-color: #fff3e0;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .important-note h4 {
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .important-note p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+        
+        .form-wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        iframe {
+            width: 100%;
+            min-height: 1000px;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        .submission-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e8 100%);
+            border-radius: 12px;
+            border: 1px solid #d4edda;
+        }
+        
+        .submission-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--success-color) 0%, #2e7d32 100%);
+            color: white;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 168, 83, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submission-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 168, 83, 0.4);
+            background: linear-gradient(135deg, #2e7d32 0%, var(--success-color) 100%);
+        }
+        
+        .submission-button:active {
+            transform: translateY(0);
+        }
+        
+        .button-icon {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-links {
+            flex: 2;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .footer-column {
+            min-width: 150px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Media Queries */
+        @media screen and (max-width: 768px) {
+            .form-container {
+                padding: 15px;
+                margin: 20px auto;
+            }
+            
+            .form-header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .payment-details {
+                grid-template-columns: 1fr;
+            }
+            
+            iframe {
+                min-height: 1200px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-logo, .footer-links {
+                flex: 1;
+                width: 100%;
+            }
+            
+            .submission-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="assets/img/codeIdea-logo-light.png" alt="CodeIdea Logo" class="logo">
+                <a href="internship2025.html" class="back-button">
+                    <span class="back-icon">←</span> Back to Programs
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Payment Confirmation</h1>
+                <p>Please complete the form below to confirm your participation in our Summer 2025 internship programs.</p>
+            </div>
+            
+            <div class="important-note">
+                <h4>📋 Important Instructions</h4>
+                <p>After making the payment, please take a clear screenshot of the transaction and upload it in the form below along with your personal details. This will help us verify and confirm your registration quickly.</p>
+            </div>
+            
+            <div class="submission-section">
+                <h3 style="margin-bottom: 20px; color: var(--text-dark);">Ready to Submit Your Details?</h3>
+                <p style="margin-bottom: 25px; color: var(--text-light);">Click the button below to access the submission form and complete your registration.</p>
+                <a href="https://forms.gle/TTknQpVViDSxHSiR7" target="_blank" class="submission-button">
+                    <span class="button-icon">📝</span>
+                    Submit Registration Form
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/img/codeIdea-logo.png" alt="CodeIdea Logo" class="logo">
+                    <p>Transform your knowledge into practical skills through our intensive internship programs.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Programs</h3>
+                        <ul>
+                            <li><a href="#">Blockchain Internship</a></li>
+                            <li><a href="#">AI/ML Internship</a></li>
+                            <li><a href="#">Past Programs</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Projects</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li><a href="mailto:contact@codeidea.in">contact@codeidea.in</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Code Idea Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
